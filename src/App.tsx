@@ -82,7 +82,7 @@ function App() {
 
   const getAllProducts = () => {
     axios
-      .get(`http://localhost:5000/viewProducts/viewAllProducts`)
+      .get(`https://node-js-with-mongodb.onrender.com/viewProducts/viewAllProducts`)
       .then((res) => {
         const resultFromNodejs = res.data;
         setProductList(res.data.Result);
@@ -105,7 +105,7 @@ function App() {
     if (isUpdate) {
       await axios
         .put(
-          `http://localhost:5000/updateproduct/updateProductByID/${formValue.productID}`,
+          `https://node-js-with-mongodb.onrender.com/updateproduct/updateProductByID/${formValue.productID}`,
           productPayload
         )
         .then((res) => console.log(res))
@@ -113,7 +113,7 @@ function App() {
     } else {
       await axios
         .post(
-          "http://localhost:5000/insertNewProduct/insertProduct",
+          "https://node-js-with-mongodb.onrender.com/insertNewProduct/insertProduct",
           productPayload
         )
         .then((res) => console.log(res))
@@ -139,7 +139,7 @@ function App() {
     try {
       console.log("Before ---->> API Call");
       const searchData = await axios.get(
-        `http://localhost:5000/viewProductById/viewProductByID/${searchProductID}`
+        `https://node-js-with-mongodb.onrender.com/viewProductById/viewProductByID/${searchProductID}`
       );
       console.log("After ---->> API Call");
       if (!searchData.data.Result || searchData.data.Result.length === 0) {
@@ -162,7 +162,7 @@ function App() {
     console.log(productID, "is the product going to get deleted");
     if (window.confirm("Are you surely want to delete")) {
       fetch(
-        `http://localhost:5000/deleteproduct/deleteProductbyID/${productID}`,
+        `https://node-js-with-mongodb.onrender.com/deleteproduct/deleteProductbyID/${productID}`,
         {
           method: "DELETE",
         }
